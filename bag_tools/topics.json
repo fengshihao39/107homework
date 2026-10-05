@@ -1,0 +1,14 @@
+{
+  "topics": [
+    {"name": "/livox/lidar", "type": "livox_ros_driver2/msg/CustomMsg", "required": true, "role": "原始 LiDAR，FAST-LIO 输入"},
+    {"name": "/livox/imu", "type": "sensor_msgs/msg/Imu", "required": true, "role": "原始 IMU，FAST-LIO 输入"},
+    {"name": "/Odometry", "type": "nav_msgs/msg/Odometry", "required": true, "role": "FAST-LIO 位姿"},
+    {"name": "/tf", "type": "tf2_msgs/msg/TFMessage", "required": true, "role": "动态坐标变换"},
+    {"name": "/tf_static", "type": "tf2_msgs/msg/TFMessage", "required": false, "role": "静态坐标变换（如有）"},
+    {"name": "/livox/lidar/pointcloud", "type": "sensor_msgs/msg/PointCloud2", "required": false, "role": "Driver 提供的 RViz 点云"},
+    {"name": "/cloud_registered", "type": "sensor_msgs/msg/PointCloud2", "required": true, "role": "camera_init 下的配准点云，RViz 显示"},
+    {"name": "/cloud_registered_body", "type": "sensor_msgs/msg/PointCloud2", "required": false, "role": "body 下的配准点云"},
+    {"name": "/path", "type": "nav_msgs/msg/Path", "required": false, "role": "FAST-LIO 轨迹"}
+  ],
+  "raw_replay_topics": ["/livox/lidar", "/livox/imu", "/tf_static"]
+}
