@@ -17,3 +17,32 @@
 ![imu_analysis 和 odom_analysis 的输入、计算方法与输出话题](docs/images/03-analysis-nodes.png)
 
 在本项目的数据处理流程中，迭代卡尔曼滤波在 FAST-LIO 内部进行；`imu_analysis` 和 `odom_analysis` 提取并发布分析指标，不参与 FAST-LIO 的滤波和定位。
+
+## 运行证据
+
+### 1. rosbag 录制结果
+
+已录制的 bag 为 `mid360_130_01`，原始数据保存在容器的 `/ws/ros2/bags/mid360_130_01`。下图是对该 bag 实际执行 `ros2 bag info` 后，截取的终端窗口画面。
+
+在已加载 ROS 2 Humble 和工作区环境的**容器终端**执行：
+
+```bash
+ros2 bag info /ws/ros2/bags/mid360_130_01
+```
+
+![实际终端中的 rosbag 信息：时长、消息数量和录制话题](docs/evidence/rosbag/01-bag-info.png)
+
+| 项目 | 实际结果 |
+| --- | --- |
+| 录制时间 | 2026-10-05 20:55:57 至 20:58:49（北京时间） |
+| 时长 | 约 172.8 秒 |
+| 消息总数 | 45,101 |
+| 存储格式 | SQLite3，约 1.9 GiB |
+| IMU 消息 | `/livox/imu`，34,560 条 |
+| 原始点云消息 | `/livox/lidar`，1,727 条 |
+| 位姿消息 | `/Odometry`，1,728 条 |
+| TF 消息 | `/tf`，1,728 条 |
+
+仓库保存了[实际命令输出](docs/evidence/rosbag/bag-info.txt)和[原始 metadata.yaml 副本](docs/evidence/rosbag/metadata.yaml)。原始 `.db3` 数据保留在容器中。
+
+该截图证明现有 bag 包含录制数据；它是录制后的检查画面，不是当时正在录制的终端截图。截图采集于 2026-10-06。

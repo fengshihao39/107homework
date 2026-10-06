@@ -1,0 +1,17 @@
+
+Files:             mid360_130_01_0.db3
+Bag size:          1.9 GiB
+Storage id:        sqlite3
+Duration:          172.798360736s
+Start:             Oct  5 2026 20:55:57.113124434 (1791204957.113124434)
+End:               Oct  5 2026 20:58:49.911485170 (1791205129.911485170)
+Messages:          45101
+Topic information: Topic: /Odometry | Type: nav_msgs/msg/Odometry | Count: 1728 | Serialization Format: cdr
+                   Topic: /cloud_registered | Type: sensor_msgs/msg/PointCloud2 | Count: 1728 | Serialization Format: cdr
+                   Topic: /cloud_registered_body | Type: sensor_msgs/msg/PointCloud2 | Count: 1728 | Serialization Format: cdr
+                   Topic: /livox/lidar | Type: livox_ros_driver2/msg/CustomMsg | Count: 1727 | Serialization Format: cdr
+                   Topic: /livox/imu | Type: sensor_msgs/msg/Imu | Count: 34560 | Serialization Format: cdr
+                   Topic: /livox/lidar/pointcloud | Type: sensor_msgs/msg/PointCloud2 | Count: 1729 | Serialization Format: cdr
+                   Topic: /path | Type: nav_msgs/msg/Path | Count: 173 | Serialization Format: cdr
+                   Topic: /tf | Type: tf2_msgs/msg/TFMessage | Count: 1728 | Serialization Format: cdr
+
