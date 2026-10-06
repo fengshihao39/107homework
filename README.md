@@ -46,3 +46,29 @@ ros2 bag info /ws/ros2/bags/mid360_130_01
 仓库保存了[实际命令输出](docs/evidence/rosbag/bag-info.txt)和[原始 metadata.yaml 副本](docs/evidence/rosbag/metadata.yaml)。原始 `.db3` 数据保留在容器中。
 
 该截图证明现有 bag 包含录制数据；它是录制后的检查画面，不是当时正在录制的终端截图。截图采集于 2026-10-06。
+
+### 2. RViz 点云与位姿显示
+
+下图采集自实际运行的 RViz 窗口，展示 `mid360_130_01` 回放时的配准点云和位姿显示状态。
+
+![rosbag 回放时的 RViz：配准点云、camera_init 固定坐标系和 Odometry 正常状态](docs/evidence/rviz/02-rviz-pointcloud.png)
+
+- `Fixed Frame` 为 `camera_init`。
+- 点云能够正常显示，`Global Status` 为 `Ok`。
+- Odometry 显示订阅 `/Odometry`，状态为 `Ok`。
+
+截图时回放的是 bag 中已经录制的 FAST-LIO 输出。以下命令分别在两个已加载 ROS 2 和工作区环境的**容器终端**运行。
+
+容器终端 1：循环回放，并发布仿真时钟。
+
+```bash
+ros2 bag play /ws/ros2/bags/mid360_130_01 --clock --loop
+```
+
+容器终端 2：加载项目的 RViz 配置，使用仿真时间。
+
+```bash
+rviz2 -d /ws/ros2/src/107/FAST_LIO/rviz/fastlio.rviz --ros-args -p use_sim_time:=true
+```
+
+截图采集于 2026-10-06。TF 关系和分析节点的输出另行展示。
