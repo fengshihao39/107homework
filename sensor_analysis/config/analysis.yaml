@@ -1,0 +1,20 @@
+imu_analysis:
+  ros__parameters:
+    input_topic: /livox/imu
+    # This project's Livox driver publishes acceleration in g. Do not change
+    # FAST-LIO's input: it already normalizes gravity internally.
+    acceleration_scale: 9.80665
+    gravity_mps2: 9.80665
+    window_seconds: 1.0
+    publish_period_seconds: 0.1
+    expected_rate_hz: 200.0
+    stationary_gyro_rms_radps: 0.05
+    stationary_accel_std_mps2: 0.15
+    stationary_gravity_error_mps2: 0.30
+odom_analysis:
+  ros__parameters:
+    input_topic: /Odometry
+    expected_rate_hz: 10.0
+    max_gap_seconds: 1.0
+    max_step_m: 1.0
+    max_speed_mps: 5.0

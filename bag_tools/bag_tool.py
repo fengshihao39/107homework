@@ -182,7 +182,11 @@ def validate_bag(path, config):
             failures.append(f"{entry['name']} 没有消息")
         if recorded and recorded["type"] != entry["type"]:
             failures.append(f"{entry['name']} 类型不匹配：{recorded['type']}")
-    report = {"bag": str(path), "duration_seconds": metadata.duration.total_seconds(),
+    # Humble returns rclpy.duration.Duration; some newer bindings use timedelta.
+    duration = metadata.duration
+    duration_seconds = (duration.nanoseconds / 1e9 if hasattr(duration, "nanoseconds")
+                        else duration.total_seconds())
+    report = {"bag": str(path), "duration_seconds": duration_seconds,
               "message_count": metadata.message_count, "topics": counts,
               "passed": not failures, "failures": failures}
     print(json.dumps(report, ensure_ascii=False, indent=2))

@@ -1,0 +1,20 @@
+# Velocity is derived from pose differences in header.frame_id (world frame).
+std_msgs/Header header
+string child_frame_id
+bool velocity_valid
+float64 dt_seconds
+float64 speed_mps
+float64 angular_speed_radps
+float64 path_length_m
+float64 displacement_m
+float64 elapsed_seconds
+float64 valid_duration_seconds
+float64 average_speed_mps
+float64 max_speed_mps
+float64 sample_rate_hz
+uint64 received_samples
+uint64 rejected_samples
+uint64 nonmonotonic_samples
+uint64 gap_events
+uint64 jump_events
+uint64 session_resets
